@@ -1,0 +1,60 @@
+in package.json, add "start" and "build" parameters in the script object, 
+and to start the project, you can simply use the command "npm run start" to run the project in browser.
+
+"npm run start" is equivalent to "npm start"
+
+to start project in dev mode use "npm run start" or "npm start"
+to build project, use "npm build"
+
+
+while trying to create an element using React.createElement, the created element is usually treated as an object.
+
+root.render() converts the particular element into HTML and pushes into the browser
+
+while doing this, the div with id as "root" in the index.html will be replaced with the React Element "heading".
+
+if it is not rendered properly, you can see the index.html content in the browser screen.
+
+
+for coding, JSX syntax is used to avoid the code readability issues that come with using React.createElement()
+syntax.
+
+JSX is not HTML inside JavaScript, only It's syntax resembles HTML.
+
+when we console.log both the React element and the JSX element, you won't find any difference in both the objects
+as they are the same.
+
+JSX code is not considered as a valid JS code as JS engine will not understand JSX
+
+the JSX code is transpiled by Parcel before it goes into the JS engine and JS.
+
+Parcel does not directly transpile, it gives the responsibility to BABEL.
+
+Babel takes in the JSX code and converts it into the format which JS engine understands.
+
+Below is the flow of a JSX code conversion
+JSX --> React.createElement --> ReactElement - JS object --> HTML element (render).
+
+While giving attributes in a JSX tag, we use camel casing
+
+
+A component is an independent and reusable piece of code in React. 
+
+There are two types of components:
+- Class Based Components
+- Function Based Components
+
+Class based is the old way of writing code in React where as Function based is the newer way.
+
+Component is just a basic JS function which returns us JSX code (or) a React element
+
+root.render is used to render React elements, but to render a component, we need to wrap it inside a Tag, like </>
+
+when one component is wrapped inside another component, it is called as Component Composition
+
+to write JS code in JSX, code it in a pair of curly brackets
+
+JSX also will help us with cross site scripting (XSS) to prevent from opening malicious data
+
+
+

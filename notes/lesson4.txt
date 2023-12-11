@@ -1,0 +1,9 @@
+first step is to plan the layout of the page before starting to code
+
+props (or) properties are basically the arguments to a function
+
+to pass data dynamically in an component, we use props to perform this
+
+config driven UI is a concept which is used to control the UI using data (configuration)
+
+data-layer and UI-layer together helps to build a frontend application

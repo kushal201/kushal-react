@@ -1,0 +1,31 @@
+There are two types of packages 
+
+1. Dev dependencies
+2. Normal dependeny
+
+A dev dependeny is required in the development phase, whereas a Normal dependeny can be used in production
+
+We have added the parcel dependency as a development dependency in the current project.
+
+We get the parcel version after it is installed in the package.json
+
+if the version starts with caret "^", will update you to all future minor/patch versions, without incrementing the major version.
+
+whereas the tilde "~" version will update you to all future minor/patch versions, without incrementing the minor version.
+
+package.json is the configuration file for the project and keeps track of all the changes.
+
+package-lock.json keeps track of the exact version of all the dependencies and records it
+
+node modules contains all the code that is fetched from npm. It is a collection of dependencies.
+
+with package.json and package-lock.json, we can recreate all the node modules even if we delete it, 
+by using "npm install" command.
+
+it is not necessary to push the node modules into github, the unnecessary files can be put in the .gitignore file to
+put the unnecessary files.
+
+creating React app using the CDN links is not a preferred way.
+
+
+NPM generates the App.js while you build in prod, so remove the main: App.js from package.json file

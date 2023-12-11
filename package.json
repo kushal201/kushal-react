@@ -1,0 +1,39 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "This is React.js project by Kushal Gidadhubli",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kushal201/kushal-react.git"
+  },
+  "keywords": [
+    "React",
+    "FrontEnd",
+    "Development",
+    "Kushal"
+  ],
+  "author": "Kushal Gidadhubli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kushal201/kushal-react/issues"
+  },
+  "homepage": "https://github.com/kushal201/kushal-react#readme",
+  "devDependencies": {
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 10 versions of Edge",
+    "last 10 versions of Chrome"
+  ],
+  "main": "index.js"
+}

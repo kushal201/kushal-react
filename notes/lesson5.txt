@@ -1,0 +1,28 @@
+It is advisable to make a new folder for all the created components to make sure code is readable and not everything
+will fall under the root level of the code.
+
+Also, we need to export the component in order to be accessible in the App.js file
+
+For exporting use "export default component-name" syntax
+
+For importing use "import component-name from path-directory"
+
+in a component file, only one export statement is allowed
+
+to export multiple files, we can use "named export" i.e. add export keyword before the element/component you want to export
+
+while importing named exports, wrap that particular element in curly braces
+
+
+React Hooks: 
+in the current project, while writing the filter logic, we can observe when we click the button, we do get the
+filtered restaurants in the conosle, but to have the same change on the UI, it is not happening.
+
+Here is where we use Hooks, it is a plain JS utlity function,
+
+the useState() hook and useEffect() hooks are very important.
+
+useState() generates super powerful state variables, it's scope is usually within a component
+
+whenever state variable updates, react re-renders the component, this is used to keep the data layer
+and UI in sync.
