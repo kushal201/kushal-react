@@ -26,3 +26,20 @@ useState() generates super powerful state variables, it's scope is usually withi
 
 whenever state variable updates, react re-renders the component, this is used to keep the data layer
 and UI in sync.
+
+
+Reconciliation Algorithm:
+React uses this algorithm, this is also known as React Fiber.
+
+Whenever we get the rendered output in the browser, we get a virtual DOM of the code, virtual DOM
+is the representation of actual DOM.
+
+It is basically an object representation of the actual DOM.
+
+
+Diff Algorithm:
+It is used to find out difference between updated virtual DOM and the previous virtual DOM
+
+
+React's core concept is that it can efficiently find out the differences between the virtual DOMs and update the UI.
+ 
