@@ -1,0 +1,32 @@
+Monolith Architecture:
+Monolithic architecture refers to a traditional software development approach where an entire application is built as a single, self-contained unit.
+
+In a monolithic architecture, all the components and modules of the application are tightly integrated and dependent on each other. 
+
+This stands in contrast to microservices architecture, where an application is broken down into smaller, loosely coupled services that can be developed, deployed, and scaled independently.
+
+Microservices:
+Microservices is an architectural style for developing software applications as a set of small, independently deployable services. 
+
+Each microservice in a system represents a specific business capability and communicates with other microservices through well-defined APIs (Application Programming Interfaces).
+
+This approach contrasts with monolithic architectures, where an entire application is developed as a single, tightly integrated unit.
+
+In this, we will work on fetching API data from swiggy dynamically instead of putting in hard coded values.
+
+There are 2 ways to fetch data:
+
+1. After page loads, we make an API call, then we render the page.
+2. After page loads, we render immediately, then we make an API call and render it again.
+
+in React, the 2nd way is preferred for providing a better UX.
+
+we are going to use the useEffect hook now. It consists of a callback function and a dependency array.
+this function will be called after we render the component.
+
+Inside useEffect we will be giving the logic to fetch the data from swiggy API to render efficiently.
+
+We will encounter a CORS error as we are trying to access swiggy API in our code. the browser enables this feature
+to avoid sharing of resources.
+
+to avoid this, we need to enable a CORS extension which will bypass this error
