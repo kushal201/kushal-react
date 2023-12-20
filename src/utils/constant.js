@@ -1,3 +1,3 @@
 export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/";
 
-export const LOGO_URL = "https://thumbs.dreamstime.com/b/food-delivery-logo-design-template-fast-delivery-service-sign-food-delivery-app-vector-logo-design-template-167491543.jpg";
+export const LOGO_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkHjmy29t8de4l1S9AtS6zSmiD1z344NLnA&usqp=CAU";
