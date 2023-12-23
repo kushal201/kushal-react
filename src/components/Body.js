@@ -44,24 +44,26 @@ const Body = () => {
   };
 
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants.length === 0 ? 
+  (
     <Shimmer/>
-  ) : (
+  ) : 
+  
+  (
     <div className="body">
       <div className="filter">
         <div className="search">
           <input type = "text" className="search-box" value = {searchText} onChange={(e) => {
             setSearchText(e.target.value)
             }}/>
-          <button class = "input-button"onClick={
+          <button className = "input-button" onClick={
             () => {
               // Filter the restaurants as per input given
-            const changedRestaurant = listOfRestaurants.filter((res) => {
-              res.data.name.includes(searchText)
-            })
-            setListOfRestaurants(changedRestaurant);
-            }
-            }>Search</button>
+            let filteredRestaurant = listOfRestaurants.filter((res) => 
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurant(filteredRestaurant);
+            }}>Search</button>
         </div>
         <button className="filter-btn" onClick={filterTopRatedRestaurants}>
           Top Rated Restaurants
