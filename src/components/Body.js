@@ -1,10 +1,15 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   // State variables
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  const [searchText, setSearchText] = useState("");
+
+  console.log("Body Rendered");
 
   // Introducing useEffect hook
   useEffect(() => {
@@ -20,13 +25,12 @@ const Body = () => {
 
       const json = await data.json();
 
-      const restaurants =
-        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants || [];
+      const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
       setListOfRestaurants(restaurants);
       setFilteredRestaurant(restaurants);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("Error fetching data:", error);
     }
   };
@@ -34,14 +38,31 @@ const Body = () => {
   // Filtering logic
   const filterTopRatedRestaurants = () => {
     const filteredList = listOfRestaurants.filter(
-      (res) => parseFloat(res.info.avgRating) > 4
+      (res) => parseFloat(res.info.avgRating) >= 4
     );
     setFilteredRestaurant(filteredList);
   };
 
-  return (
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer/>
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type = "text" className="search-box" value = {searchText} onChange={(e) => {
+            setSearchText(e.target.value)
+            }}/>
+          <button class = "input-button"onClick={
+            () => {
+              // Filter the restaurants as per input given
+            const changedRestaurant = listOfRestaurants.filter((res) => {
+              res.data.name.includes(searchText)
+            })
+            setListOfRestaurants(changedRestaurant);
+            }
+            }>Search</button>
+        </div>
         <button className="filter-btn" onClick={filterTopRatedRestaurants}>
           Top Rated Restaurants
         </button>

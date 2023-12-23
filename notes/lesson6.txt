@@ -30,3 +30,17 @@ We will encounter a CORS error as we are trying to access swiggy API in our code
 to avoid sharing of resources.
 
 to avoid this, we need to enable a CORS extension which will bypass this error
+
+
+By implementing Shimmer UI, we can create a fake restaurant card which will be later filled by the data
+coming from the API after a proper render.
+
+When the State variable is used and the state of the component is changed, the whole respective component will 
+re-render.
+
+While building the search bar, it requires to filter all the restaurants as per the input we type,
+basically we are changing the local state variable.
+
+while doing this, the whole component will re-render.
+
+React re-renders the reconciliation cycle very quickly
