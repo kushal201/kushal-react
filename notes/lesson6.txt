@@ -19,18 +19,20 @@ There are 2 ways to fetch data:
 1. After page loads, we make an API call, then we render the page.
 2. After page loads, we render immediately, then we make an API call and render it again.
 
-in React, the 2nd way is preferred for providing a better UX.
+in React, the 2nd way is preferred for providing a better UX. Even though the component is rendering twice, it
+doesn't matter as React's render cycles are very fast.
 
 we are going to use the useEffect hook now. It consists of a callback function and a dependency array.
-this function will be called after we render the component.
+this function will be called only after the component is rendered completely.
 
 Inside useEffect we will be giving the logic to fetch the data from swiggy API to render efficiently.
 
-We will encounter a CORS error as we are trying to access swiggy API in our code. the browser enables this feature
+we are going to bring data from swiggy API using fetch() function, this function is given by the browser.
+
+We will encounter a CORS (cross-origin resource sharing) error as we are trying to access swiggy API in our code. the browser enables this feature
 to avoid sharing of resources.
 
-to avoid this, we need to enable a CORS extension which will bypass this error
-
+to avoid this, we need to enable a CORS extension which will bypass this error.
 
 By implementing Shimmer UI, we can create a fake restaurant card which will be later filled by the data
 coming from the API after a proper render.

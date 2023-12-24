@@ -30,7 +30,7 @@ const Body = () => {
       setListOfRestaurants(restaurants);
       setFilteredRestaurant(restaurants);
     } 
-    catch (error) {
+      catch (error) {
       console.error("Error fetching data:", error);
     }
   };
@@ -38,7 +38,7 @@ const Body = () => {
   // Filtering logic
   const filterTopRatedRestaurants = () => {
     const filteredList = listOfRestaurants.filter(
-      (res) => parseFloat(res.info.avgRating) >= 4
+      (res) => parseFloat(res.info.avgRating) >= 4.5
     );
     setFilteredRestaurant(filteredList);
   };
