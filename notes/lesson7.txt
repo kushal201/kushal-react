@@ -1,0 +1,38 @@
+In useEffect hook, the callback function will be executed everytime when component re-renders.
+
+when there is no dependency array, then useEffect is called on every render
+
+but when there is an empty dependency array, useEffect will be called on initial render only (just once).
+
+when there exists something in the dependency array, useEffect will only be called everytime when the dependency
+is updated.
+
+for example if we put in btnName inside the dependency array, as while we click it everytime it changes its state
+from login to logout and vice versa, useEffect will be called everytime when the state changes.
+
+
+for useState, it should be declared only inside the component.
+Always create state variables on the top of the code i.e. after the component code starts
+
+Also never use hooks inside a conditional statements and loops as it will cause inconsistencies in the code.
+
+We will start working on React Router as we will be creating multiple pages like about, contact.
+we will install version 6 of react router.
+
+inside App.js, we import createBrowserRouter from react-router-dom. the createBrowserRouter is a function
+which takes in a list of paths. We will list the specified paths for About and Contact
+
+We create this configuration, but to provide this configuration, we will have to use RouterProvider
+along with createBrowserRouter.
+
+RouterProvider will provide the routing configuration to our app.
+
+for handling error while we input an incorrect URL, we can use errorElement property inside createBrowserRouter
+and create an Error component.
+
+the useRouteError hook is useful for handling errors as well.
+while we log the useRouteError() function inside our Error.js component and we give an incorrect URL,
+it will return us an object with all respective properties
+
+
+

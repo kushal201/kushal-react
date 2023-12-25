@@ -9,7 +9,6 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  console.log("Body Rendered");
 
   // Introducing useEffect hook
   useEffect(() => {
