@@ -15,6 +15,7 @@ const Body = () => {
     fetchData();
   }, []);
 
+  console.log("Body Rendered")
   // Logic to fetch data from Swiggy API
   const fetchData = async () => {
     try {
@@ -24,7 +25,7 @@ const Body = () => {
 
       const json = await data.json();
 
-      const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
       setListOfRestaurants(restaurants);
       setFilteredRestaurant(restaurants);

@@ -32,7 +32,26 @@ and create an Error component.
 
 the useRouteError hook is useful for handling errors as well.
 while we log the useRouteError() function inside our Error.js component and we give an incorrect URL,
-it will return us an object with all respective properties
+it will return us an object with all respective properties.
+
+For "about" and "contact" routes, we will be providing children routes by providing the "Outlet" component.
+
+Outlet is used in parent route elements to render their child route elements.
+This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, 
+it will render a child index route or nothing if there is no index route.
+
+while we try to navigate from home to about or contact using anchor tag, the whole page gets reloaded
+to avoid this, we use the <Link /> tag given by react-router-dom
+
+Basically the whole React app is treated as an SPA (single page application) which doesn't need to reload 
+or refresh all the time.
+
+there are two types of routing in react
+- client side routing
+- server side routing
+
+in react, we follow SPA where the components get interchanged while we choose different paths 
+via client side routing.
 
 
 

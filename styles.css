@@ -23,12 +23,12 @@
     font-size: 20px;
 }
 
-.nav-items > ul > button {
+.nav-items > ul > li > button {
     padding: 10px;
     margin: 10px;
 }
 
-.nav-items > ul > button:hover {
+.nav-items > ul > li > button:hover {
     cursor: pointer;
     color: #186F65;
 }
