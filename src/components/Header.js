@@ -8,7 +8,7 @@ const Header = () => {
   console.log("Header Rendered");
 
   useEffect(() => {
-    console.log("useEffect called");
+    console.log("Header useEffect called");
   }, [btnName]);
 
   return (

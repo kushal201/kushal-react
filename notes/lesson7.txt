@@ -50,8 +50,27 @@ there are two types of routing in react
 - client side routing
 - server side routing
 
+in server side routing, we make network calls to fetch the page on to the screen. But in client side routing,
+no network calls are made as the whole page is loaded all at once.
+
+That is why a React app is treated as a single page application.
+
 in react, we follow SPA where the components get interchanged while we choose different paths 
 via client side routing.
+
+While creating menu pages for each restaurants, we need to perform dynamic routing as there are
+different items in different restaurants.
+
+we will be creating a RestaurantMenu component under the children route and will be using 
+an API call to fetch the restaurant info.
+
+using fetch function, we get all the data of the restaurant adn further we will destructure
+through the object to have a clean code.
+
+then we iterate over each restaurant's menu using the map function which will give us each and every item
+present in the menu.
+
+<Link> tag is like a cover up for the anchor tag
 
 
 

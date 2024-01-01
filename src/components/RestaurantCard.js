@@ -15,7 +15,7 @@ const RestaurantCard = (props) => {
     
 
     return (
-        <div className="res-card" style={styleCard} onClick={() => {alert("Coming Soon!")}}> 
+        <div className="res-card" style={styleCard}> 
             <img className = "res-logo"
             alt = "res-logo" 
             src={
