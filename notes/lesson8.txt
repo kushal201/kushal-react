@@ -1,0 +1,14 @@
+Class Based Components is an older way of coding components. This was used before functional components.
+
+class based components are JS classes and they can be identified as a component by
+extending React.component. It is a class present in React package.
+
+
+Inside the class we have a method named rended which will return the JSX code on the UI which we require.
+
+The constructor method is a special method that gets called when an instance of the class is created. In the context of a React component,
+it is used to initialize the component's state and bind event handlers.
+
+in class components, for using state we use this.state
+
+
