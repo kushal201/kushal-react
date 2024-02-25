@@ -17,4 +17,20 @@ count value, we use onClick handler to trigger the change in state.
 When an instance of a class is created, the constructor is called.
 
 In A class component, first the constructor is called, then the render method is called and then 
-componentDidMount method is called
+componentDidMount method is called.
+
+If more than one instance of the child class is called, then the parent constructor and render will be called
+and the first child's constructor and render will be called followed by second child's constructor and render.
+
+then first child's componentDidMount gets called followed by second child's componentDidMount, then the parent
+componentDidMount gets called.
+
+after render is called, the DOM gets updated.
+
+For API calls in class components, make the componentDidMount method async, put the api url and create
+another object this.setState to update the state variable.
+
+after state is updated, the component re-renders again with the latest value of state variable.
+
+componentDidUpdate method is called when the component is updated in the DOM 
+and componentWillUnmount is called after component is removed from the DOM.

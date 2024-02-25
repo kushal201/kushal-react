@@ -9,7 +9,7 @@ class About extends Component {
     }
 
     componentDidMount() {
-        console.log("Parent Component Did Mount")
+        console.log("Parent Component Did Mount");
     }
 
     render() {
@@ -19,9 +19,14 @@ class About extends Component {
                 <h1>About</h1>
                 <h1>This is Namaste React</h1>
                 <User/>
-                <UserClass name = {"Kushal (Class)"} location = {"Hyderabad (Class)"}/>
+                <UserClass name = {"First"} location = {"Hyderabad (Class)"}/>
+                {/* <UserClass name = {"Second"} location = {"Bengaluru (Class)"}/> */}
             </div>
         );
+    }
+
+    componentWillUnmount() {
+        console.log("Component Removed");
     }
     
 };
