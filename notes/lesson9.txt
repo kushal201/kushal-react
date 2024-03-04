@@ -1,0 +1,14 @@
+Single Responsibility Principle:
+the Single Responsibility Principle encourages developers to design classes and functions that are focused on a single concern or responsibility.
+This helps in keeping the codebase modular, readable, and maintainable.
+If a class or function has multiple responsibilities,
+changes to one aspect of the code may inadvertently affect another, leading to potential bugs and making the code harder to understand and maintain.
+
+Custom Hooks:
+Custom hooks allow you to extract and reuse stateful logic in your components.
+By following the naming convention and structure, React recognizes them as hooks,
+enabling the use of state and other React features within these functions.
+
+we are creating a custom hook named useRestaurantMenu which takes in resId as 
+parameter and will return us resInfo. The same logic present in the RestaurantMenu component is
+moved to the useRestaurantMenu hook and then it can be exported to use the feature.
