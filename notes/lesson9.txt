@@ -12,3 +12,6 @@ enabling the use of state and other React features within these functions.
 we are creating a custom hook named useRestaurantMenu which takes in resId as 
 parameter and will return us resInfo. The same logic present in the RestaurantMenu component is
 moved to the useRestaurantMenu hook and then it can be exported to use the feature.
+
+We have created a feature which shows whether the application status is online or offline.
+If it is online, it shows a green button otherwise it shows a red button
