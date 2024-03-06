@@ -15,3 +15,19 @@ moved to the useRestaurantMenu hook and then it can be exported to use the featu
 
 We have created a feature which shows whether the application status is online or offline.
 If it is online, it shows a green button otherwise it shows a red button
+
+We are going to implement app chunking in the application, it is also called as lazy loading,
+code splitting or dynamic bundling.
+This helps us to optimize by splitting the application into smaller parts and makes the application
+faster.
+
+We have built another component named Grocery and created a route in the App.js file for which 
+we are going to implement lazy loading.
+This helps us in loading the code only when required which will be helpful for code splitting.
+
+While trying to view Grocery, error occurs A component suspended while responding to synchronous input.
+to handle this, we are using Suspense component wrapped around Grocery.
+
+This will help us to not load the code all at once and we can use it only when we need.
+Inside Suspense tag, adding fallback keyword helps to display the loading side effect such as Shimmer
+image. 

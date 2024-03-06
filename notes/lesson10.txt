@@ -1,0 +1,12 @@
+for styling of the project we are going to use Tailwind CSS.
+This can enchance the existing CSS styling present in the code.
+Also we are going to use styled components.
+Few CSS preprocessors such as Material UI, Chakra UI, Bootstrap, 
+also help us to style components as per requirement.
+
+for installing tailwind, we need to install it via parcel.
+we will be getting tailwind.config.js file and.postcssrc files for configuring.
+
+after deleting all the existing CSS code and after adding the tailwind directives, 
+the app's styling is changed completely.
+

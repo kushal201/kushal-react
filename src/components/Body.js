@@ -63,11 +63,11 @@ const Body = () => {
   (
     <div className="body">
       <div className="filter">
-        <div className="search">
-          <input type = "text" className="search-box" value = {searchText} onChange={(e) => {
+        <div className="search m-4 p-4">
+          <input type = "text" className="border border-black" value = {searchText} onChange={(e) => {
             setSearchText(e.target.value)
             }}/>
-          <button className = "input-button" onClick={
+          <button className = "p-4 bg-green-100 m-4" onClick={
             () => {
               // Filter the restaurants as per input given
             let filteredRestaurant = listOfRestaurants.filter((res) => 

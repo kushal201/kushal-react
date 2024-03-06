@@ -14,36 +14,41 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="header">
+    <div className="flex h-50 justify-between bg bg-pink-100 shadow-lg m-1">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} alt="Logo" />
+        <img className="w-13 rounded-sm" src={LOGO_URL} alt="Logo" />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4">
+          <li className="px-4">
             <button type ="button">
             Online Status: {onlineStatus ? "🟢": "🔴"}
             </button>
           </li>
-          <li>
+          <li className="px-4">
             <button type="button">
                 <Link to="/">Home</Link>
                 </button>
           </li>
-          <li>
+          <li className="px-4">
             <button type="button">
               <Link to="/about">About Us</Link>
             </button>
           </li>
-          <li>
+          <li className="px-4">
             <button type="button">
               <Link to="/contact">Contact Us</Link>
             </button>
           </li>
-          <li>
+          <li className="px-4">
+            <button type="button">
+              <Link to="/grocery">Grocery</Link>
+            </button>
+          </li>
+          <li className="px-4">
             <button type="button">Cart</button>
           </li>
-          <li>
+          <li className="px-4">
             <button
               type="button"
               onClick={() => {
