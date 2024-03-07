@@ -9,4 +9,8 @@ we will be getting tailwind.config.js file and.postcssrc files for configuring.
 
 after deleting all the existing CSS code and after adding the tailwind directives, 
 the app's styling is changed completely.
+By adding tailwind extension in VS code, it makes easier to code inside the components.
+
+code can be directly added in the class of the element instead of creating another file for styling and
+it helps also in resposiveness.
 

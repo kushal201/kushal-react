@@ -14,9 +14,9 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="flex h-50 justify-between bg bg-pink-100 shadow-lg m-1">
+    <div className="flex h-50 justify-between bg-orange-100 shadow-lg m-0">
       <div className="logo-container">
-        <img className="w-13 rounded-sm" src={LOGO_URL} alt="Logo" />
+        <img className="w-[170px] rounded-sm" src={LOGO_URL} alt="Logo" />
       </div>
       <div className="flex items-center">
         <ul className="flex p-4 m-4">
