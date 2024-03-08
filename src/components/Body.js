@@ -1,10 +1,10 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { recommended } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { RESTAURANT_LIST_URL } from "../utils/constant";
 import useRestaurantList from "../utils/useRestaurantList";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus"; 
 
 const Body = () => {
   // State variables
@@ -12,6 +12,10 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardRecommended = recommended(RestaurantCard);
+
+  console.log("Body Rendered", listOfRestaurants)
 
 
   // Introducing useEffect hook
@@ -23,7 +27,6 @@ const Body = () => {
     console.log("Body useEffect called");
   }, [filteredRestaurant])
 
-  console.log("Body Rendered")
   // Logic to fetch data from Swiggy API
   const fetchData = async () => {
     try {
@@ -67,8 +70,8 @@ const Body = () => {
           <input type = "text" className="border border-black" value = {searchText} onChange={(e) => {
             setSearchText(e.target.value)
             }}/>
-        
         </div>
+
         <div className="search m-4 p-4 flex items-center">
         <button className = "px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={
             () => {
@@ -89,7 +92,14 @@ const Body = () => {
           key={restaurant.info.id}
           to = {"/restaurants/" + restaurant.info.id}
           >
-          <RestaurantCard resData={restaurant} />
+            {
+              restaurant.info.avgRating >= 4.5 ? 
+              ( <RestaurantCardRecommended resData = {restaurant}/>) 
+              :
+              (
+              <RestaurantCard resData = {restaurant}/>
+              )
+            }
           </Link>
         ))}
       </div>

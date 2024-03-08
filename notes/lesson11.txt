@@ -1,0 +1,17 @@
+Higher order components are functions that takes in a component and
+returns us another component.
+
+We are creating a feature where each restaurant shows whether it is Recommended or not.
+For that in the RestaurantCard component we will be creating the Higher order component logic.
+
+whenever a restaurant has rating above 4.5, it needs to show a label saying Recommended.
+
+So the Higher order component recommended will take in RestaurantCard component
+as the parameter and will return another component. Here 2 return statements are needed i.e.
+1 for the higher order component and another inside the first return block.
+
+after importing it in Body.js we can render it as per the 4.5 and above rating requirement
+by passing resData as props.
+Also props will be a parameter in the higher order component's first return statement.
+
+HOC are preferred as they are pure functions and do not modify existing component's code.
