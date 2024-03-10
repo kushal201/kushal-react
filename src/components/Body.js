@@ -26,7 +26,7 @@ const Body = () => {
 
   useEffect(() => {
     console.log("Body useEffect called");
-  }, [listOfRestaurants])
+  }, [filteredRestaurant])
 
   // Logic to fetch data from Swiggy API
   const fetchData = async () => {
@@ -83,7 +83,7 @@ const Body = () => {
               setFilteredRestaurant(filteredRestaurant);
             }}>Search</button>
             </div>
-            <button className="px-4 py-2 bg-gray-300 m-4 flex items-center rounded-lg shadow-lg" onClick={filterTopRatedRestaurants}>
+            <button className="px-4 py-2 text-white bg-orange-400 m-4 flex items-center rounded-lg shadow-lg" onClick={filterTopRatedRestaurants}>
              Top Rated Restaurants
             </button>
       </div>

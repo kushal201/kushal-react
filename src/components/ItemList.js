@@ -15,10 +15,10 @@ const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_
                         <span className="font-bold">{item.card.info.name}</span>
                         <span> ₹ - {item.card.info.price/100}</span>
                     </div>
-                    <p className="text-xs text-gray-500">{item.card.info.description}</p>
+                    <p className="text-xs text-gray-700">{item.card.info.description}</p>
                     </div>
                     <div className="w-3/12 p-4">
-                        <img src = {IMG_URL + item?.card?.info?.imageId} className="w-full"></img>
+                        <img alt = "image not available" src = {IMG_URL + item?.card?.info?.imageId} className="w-full"></img>
                     </div>
                 </div>
                 
