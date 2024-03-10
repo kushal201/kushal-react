@@ -21,11 +21,12 @@ const Body = () => {
   // Introducing useEffect hook
   useEffect(() => {
     fetchData();
+    console.log("Restaurants fetched")
   }, []);
 
   useEffect(() => {
     console.log("Body useEffect called");
-  }, [filteredRestaurant])
+  }, [listOfRestaurants])
 
   // Logic to fetch data from Swiggy API
   const fetchData = async () => {

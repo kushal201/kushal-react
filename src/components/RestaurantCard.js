@@ -1,11 +1,5 @@
 import { CDN_URL } from "../utils/constant.js";
 
-const styleCard = {
-    backgroundColor: "#f0f0f0",
-
-}
-
-
 const RestaurantCard = (props) => {
     const { resData } = props;
     const {cloudinaryImageId, name, avgRating, cuisines, costForTwo, areaName}  = resData.info;
@@ -13,7 +7,7 @@ const RestaurantCard = (props) => {
     
 
     return (
-        <div className="m-4 p-4 w-[220px] rounded-lg bg-gray-100 hover:bg-gray-300"> 
+        <div className="m-4 p-4 w-[220px] rounded-lg bg-gray-100 hover:bg-gray-300 shadow-xl"> 
             <img className = "rounded-lg"
             alt = "res-logo" 
             src={

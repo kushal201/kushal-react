@@ -6,7 +6,7 @@ For that in the RestaurantCard component we will be creating the Higher order co
 
 whenever a restaurant has rating above 4.5, it needs to show a label saying Recommended.
 
-So the Higher order component recommended will take in RestaurantCard component
+So the Higher order component "recommended" will take in RestaurantCard component
 as the parameter and will return another component. Here 2 return statements are needed i.e.
 1 for the higher order component and another inside the first return block.
 
@@ -15,3 +15,14 @@ by passing resData as props.
 Also props will be a parameter in the higher order component's first return statement.
 
 HOC are preferred as they are pure functions and do not modify existing component's code.
+
+In a React app, UI layer is powered by the data layer. We are going to modify the RestaurantMenu
+component by creating it as per accordion UI. For that we have filtered from the itemCards list where
+type is marked as "ItemCategory" so that we can create as per the data.
+
+We have also created a new component RestaurantCategory to list all the category names and by importing
+it into RestaurantMenu, we have used map function to iterate over all the filtered categories
+to print the category names.
+
+ItemList component is created to display list of all the items in each category, to each item, we have
+added an image to id using the CDN_URL and the cloudinary image id.
