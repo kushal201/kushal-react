@@ -25,4 +25,5 @@ it into RestaurantMenu, we have used map function to iterate over all the filter
 to print the category names.
 
 ItemList component is created to display list of all the items in each category, to each item, we have
-added an image to id using the CDN_URL and the cloudinary image id.
+added an image to id using the CDN_URL and the cloudinary image id along with add button.
+

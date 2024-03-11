@@ -1,0 +1,21 @@
+in the RestaurantCategory component for building the hide and show feature for each category. for that we have 
+to create a boolean state variable showItems with inital state as true.
+
+when the variable updates to false, the items should hide from each category when we
+click on the categories.
+
+for making the items hide, in the setShowItems() function we pass in !showItems, i.e. whenever showItems 
+becomes false, it will hide all the items in the selected category.
+
+To build a feature where if one accordion or category is expanded, the other expanded categories should be
+hidden is little tricky. as each category has its own state, we cannot modify state on the items list
+so we will be using the parent element i.e. RestaurantMenu to manage the state.
+
+for doing this the RestaurantCategory should not have the state variable but the RestaurantMenu should
+be using it as it is the parent element. This leads us to controlled and uncontrolled components
+RestaurantCategory becomes controlled component as the RestaurantMenu component controls the
+RestaurantCategory component.
+
+controlled components become stateless components because they do not have any internal
+state and do not have life cycle methods and are props driven. This feature is also
+called as lifting the state up.
