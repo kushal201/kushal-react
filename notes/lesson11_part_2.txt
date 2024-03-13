@@ -19,3 +19,11 @@ RestaurantCategory component.
 controlled components become stateless components because they do not have any internal
 state and do not have life cycle methods and are props driven. This feature is also
 called as lifting the state up.
+
+Previously after selecting one category all the other open categories would be hidden, 
+but to make the selected category also hide, a new function toggleShowIndex which has parameter "index".
+
+toggleShowIndex function will have the setShowIndex state function which can update the index value
+by checking whether the current state and desired state are same. If both are same, the category will hide
+and if both are different we will see the desired category items list displayed.
+

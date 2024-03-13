@@ -11,10 +11,13 @@ const RestaurantMenu = () => {
     // using the customised hook
     const resInfo = useRestaurantMenu(resId);
 
-    const [showIndex, setShowIndex] = useState(null);
+    const [showIndex, setShowIndex] = useState(0);
 
+    // function to check whether the desired category is open or closed
     const toggleShowIndex = (index) => {
         setShowIndex(prevIndex => (prevIndex === index ? null : index));
+        
+        //prevIndex is current state value of showIndex and index is the desired state value
     };
 
     if(resInfo === null) return <Shimmer />
