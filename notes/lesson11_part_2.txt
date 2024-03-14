@@ -27,3 +27,10 @@ toggleShowIndex function will have the setShowIndex state function which can upd
 by checking whether the current state and desired state are same. If both are same, the category will hide
 and if both are different we will see the desired category items list displayed.
 
+props drilling is a way to pass props from parent components to child components, but this becomes
+a bad practice when there exist multiple children component in between. to avoid this we use
+context API. To use this a new JS file inside utils is created under the name UserContext.js
+which has property of loggedInUser set to "Default User" to show the name of User.
+
+To access the context, useContext hook is used and the UserContext is passed as a parameter.
+

@@ -13,6 +13,7 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
+  // Higher Order Component
   const RestaurantCardRecommended = recommended(RestaurantCard);
 
   console.log("Body Rendered", listOfRestaurants)

@@ -6,7 +6,9 @@ import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
 
+    // using useParams to get "resId" from url
     const {resId} = useParams();
+    
 
     // using the customised hook
     const resInfo = useRestaurantMenu(resId);
