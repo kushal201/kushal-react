@@ -36,7 +36,10 @@ const Body = () => {
 
       const json = await data.json();
 
-      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+      const restaurants1 = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      const restaurants2 = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants 
+
+      const restaurants = [...restaurants1, ...restaurants2];
 
       setListOfRestaurants(restaurants);
       setFilteredRestaurant(restaurants);
@@ -53,6 +56,15 @@ const Body = () => {
     );
     setFilteredRestaurant(filteredList);
   };
+
+  // quick delivery feature
+  const quickDelivery = () => {
+    const nearbyRestaurants = listOfRestaurants.filter(
+    (rest) => (rest.info.sla.deliveryTime) <= 20
+    );
+    setFilteredRestaurant(nearbyRestaurants);
+    console.log("quick");
+  }
 
   const onlineStatus = useOnlineStatus();
 
@@ -86,6 +98,9 @@ const Body = () => {
             </div>
             <button className="px-4 py-2 text-white bg-orange-400 m-4 flex items-center rounded-lg shadow-lg" onClick={filterTopRatedRestaurants}>
              Top Rated Restaurants
+            </button>
+            <button className="p-2 mx-3 bg-yellow-500 text-white rounded-lg shadow-lg" onClick={quickDelivery}>
+              Nearby Restaurants
             </button>
       </div>
       <div className="flex flex-wrap">
