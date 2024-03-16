@@ -6,10 +6,10 @@ import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
 
+
     // using useParams to get "resId" from url
     const {resId} = useParams();
     
-
     // using the customised hook
     const resInfo = useRestaurantMenu(resId);
 
@@ -22,10 +22,13 @@ const RestaurantMenu = () => {
         //prevIndex is current state value of showIndex and index is the desired state value
     };
 
+    // filter to show veg items
+    const toggleOnlyVeg = () => setShowVeg(prevState => !prevState);
+
     if(resInfo === null) return <Shimmer />
 
     // destructuring to get name, cuisines and cost for two
-    const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
+    const {name, cuisines, areaName, costForTwoMessage, avgRating, totalRatingsString} = resInfo?.cards[0]?.card?.card?.info;
 
     // destructuring to obtain the list of items from each restaurant
     const {itemCards} = 
@@ -42,12 +45,15 @@ const RestaurantMenu = () => {
     console.log(categories);
 
     return (
-        <div className="text-center">
-            <h1 className="font-bold my-6 text-2xl">{name}</h1>
-            <p className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage}</p>
-            <button className="bg-green-500 text-white p-2 rounded-lg my-4">
-            Vegetarian Items
-            </button>
+        <div className="m-5">
+            <div className="">
+            <h1 className="font-bold my-6 text-xl">{name}</h1>
+            <p className="font-bold my-5">{cuisines.join(", ")} - {costForTwoMessage}</p>
+            </div>
+            <div className="">
+            <span className="mx-2 font-bold">{totalRatingsString}</span>
+            <span className="mx-4 bg-green-600 text-white rounded-lg font-medium m-30 p-1">{avgRating} ☆</span>
+            </div>
             {categories.map((category, index) => (
                 //controlled component below
 

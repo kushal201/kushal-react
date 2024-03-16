@@ -36,10 +36,10 @@ const Body = () => {
 
       const json = await data.json();
 
-      const restaurants1 = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       const restaurants2 = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants 
 
-      const restaurants = [...restaurants1, ...restaurants2];
+      // const restaurants = [...restaurants1, ...restaurants2];
 
       setListOfRestaurants(restaurants);
       setFilteredRestaurant(restaurants);

@@ -3,8 +3,8 @@ const ItemList = ({items}) => {
 
     // console.log(items);
     const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/";
-    
-    
+
+
     return <div>
             {items.map(item => (
                 <div
