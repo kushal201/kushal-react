@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
 
+    const[searchItems, setSearchItems] = useState("");
 
     // using useParams to get "resId" from url
     const {resId} = useParams();
@@ -22,13 +23,12 @@ const RestaurantMenu = () => {
         //prevIndex is current state value of showIndex and index is the desired state value
     };
 
-    // filter to show veg items
-    const toggleOnlyVeg = () => setShowVeg(prevState => !prevState);
-
     if(resInfo === null) return <Shimmer />
 
-    // destructuring to get name, cuisines and cost for two
-    const {name, cuisines, areaName, costForTwoMessage, avgRating, totalRatingsString} = resInfo?.cards[0]?.card?.card?.info;
+    // destructuring to get following properties
+    const {name, cuisines, areaName, avgRating, totalRatingsString} = resInfo?.cards[0]?.card?.card?.info;
+
+    const {deliveryTime} = resInfo?.cards[0]?.card?.card?.info.sla;
 
     // destructuring to obtain the list of items from each restaurant
     const {itemCards} = 
@@ -44,17 +44,33 @@ const RestaurantMenu = () => {
     );
     console.log(categories);
 
+    // function to filter the category while searching
+        const filteredCategories = categories.filter(
+        (c) => c?.card?.card?.title.toLowerCase().includes(searchItems.toLowerCase())
+        );
+        
     return (
-        <div className="m-5">
-            <div className="">
-            <h1 className="font-bold my-6 text-xl">{name}</h1>
-            <p className="font-bold my-5">{cuisines.join(", ")} - {costForTwoMessage}</p>
+            <div className="m-5 justify-between">
+            <div className="flex justify-between items-center">
+                <div>
+                    <h1 className="font-bold text-xl my-2">{name}</h1>
+                    <span className="text-xs text-gray-700">{cuisines.join(", ")} | {areaName}</span>
+                </div>
+                <div className="flex items-center">
+                    <span className="font-bold mx-7">{totalRatingsString}</span>
+                    <span className="bg-green-600 text-white rounded-lg font-medium p-1">{avgRating} ☆</span>
+                </div>
             </div>
-            <div className="">
-            <span className="mx-2 font-bold">{totalRatingsString}</span>
-            <span className="mx-4 bg-green-600 text-white rounded-lg font-medium m-30 p-1">{avgRating} ☆</span>
-            </div>
-            {categories.map((category, index) => (
+                <span className="text-xs text-gray-700">⏱ - {deliveryTime} minutes</span>
+            <div className="my-5 border-t border-dashed border-black w-full"></div>
+            <input
+            type="text"
+            onChange = {(e) => setSearchItems(e.target.value)}
+            value = {searchItems}
+            className="mx-3 place-items-center border border-black">
+            </input>
+
+            {filteredCategories.map((category, index) => (
                 //controlled component below
 
                 <RestaurantCategory
@@ -64,7 +80,7 @@ const RestaurantMenu = () => {
                 setShowIndex = {() => toggleShowIndex(index)}
                 />
             ))}
-        </div>
+    </div>
     );
 }
 

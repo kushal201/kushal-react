@@ -51,15 +51,15 @@ const Header = () => {
               <Link to="/grocery">Grocery</Link>
             </button>
           </li>
-          <li className="px-4">
+          {/* <li className="px-4">
             <button type="button">{loggedInUser}</button>
-          </li>
+          </li> */}
           <li className="px-4">
             <button
               type="button"
               onClick={() => {
                 setBtnName((prevBtnName) =>
-                  prevBtnName === "Login" ? "Logout" : "Login"
+                  prevBtnName === "Login" ? loggedInUser : "Login"
                 );
               }}
             >
