@@ -10,7 +10,6 @@ const Body = () => {
   // State variables
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-
   const [searchText, setSearchText] = useState("");
 
   // Higher Order Component
@@ -20,6 +19,7 @@ const Body = () => {
 
 
   // Introducing useEffect hook
+  // called only at inital render while the restaurant list is obtained
   useEffect(() => {
     fetchData();
     console.log("Restaurants fetched")
@@ -27,7 +27,17 @@ const Body = () => {
 
   useEffect(() => {
     console.log("Body useEffect called");
-  }, [filteredRestaurant])
+  }, [filteredRestaurant]);
+
+  // logic to filtering restaurants as per input given in 
+  useEffect(() => {
+    let filteredList = listOfRestaurants.filter((res) => 
+      res.info.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredRestaurant(filteredList);
+  }, [searchText, listOfRestaurants])
+
+
 
   // Logic to fetch data from Swiggy API
   const fetchData = async () => {
@@ -36,11 +46,12 @@ const Body = () => {
 
       const json = await data.json();
 
-      const restaurants1 = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       const restaurants2 = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants 
 
-      const restaurants = [...restaurants1, ...restaurants2];
+      // const restaurants = [...restaurants1, ...restaurants2];
 
+      // updating filtered restaurants and list of restaurants
       setListOfRestaurants(restaurants);
       setFilteredRestaurant(restaurants);
     } 
@@ -68,7 +79,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  const restaurantList = useRestaurantList();
+  // const restaurantList = useRestaurantList();
 
   if(onlineStatus === false) return <h1>You're Offline!, Please Check Your Internet Connection</h1>
 
@@ -81,28 +92,18 @@ const Body = () => {
     <div className="body">
       <div className="filter flex place-items-center">
         <div className="search m-4 p-4 flex items-center">
-          <input type = "text" className="border border-black" value = {searchText} onChange={(e) => {
+          <input type = "text" className="border border-black w-full" value = {searchText} onChange={(e) => {
             setSearchText(e.target.value)
             }}/>
         </div>
 
         <div className="search m-4 p-4 flex items-center">
-        <button className = "px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={
-            () => {
-              // Filter the restaurants as per input given
-            let filteredRestaurant = listOfRestaurants.filter((res) => 
-              res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setFilteredRestaurant(filteredRestaurant);
-            }}>Search</button>
             </div>
-
 
             <button className="px-4 py-2 text-white bg-orange-400 m-4 flex items-center rounded-lg shadow-lg" onClick={filterTopRatedRestaurants}>
              Top Rated Restaurants
             </button>
-
-            
+             
             <button className="p-2 mx-3 bg-yellow-500 text-white rounded-lg shadow-lg" onClick={quickDelivery}>
               Nearby Restaurants
             </button>

@@ -33,4 +33,10 @@ context API. To use this a new JS file inside utils is created under the name Us
 which has property of loggedInUser set to "Default User" to show the name of User.
 
 To access the context, useContext hook is used and the UserContext is passed as a parameter.
+To use the useContext in class components, we use <UserContext.Consumer /> tag.
+
+to override the loggedInUser through out the application, the loggedInUser value should be updated to the desired
+value. It can be done by using useState and useEffect hooks. in App.js the <UserContext.Provider />
+tag is wrapped around the "app" div present in it. By doing this, it will override the loggedInUser value wherever it
+exists.
 
