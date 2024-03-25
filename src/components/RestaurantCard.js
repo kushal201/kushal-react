@@ -5,7 +5,7 @@ import UserContext from "../utils/UserContext.js";
 
 const RestaurantCard = (props) => {
     const { resData } = props;
-    const {loggedInUser} = useContext(UserContext);
+    const {greet} = useContext(UserContext);
     const {cloudinaryImageId, name, avgRating, cuisines, costForTwo, areaName}  = resData.info;
     const {slaString} = resData.info.sla;
 
@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
             <span className="bg-green-600 text-white rounded-lg font-semibold m-30 p-1">{avgRating} ☆</span>
             <h4 className="py-2">{costForTwo}</h4>
             <h4>{slaString}</h4>
-            <h4>User: {loggedInUser}</h4>
+            <h4>User: {greet}</h4>
         </div>
     );
 };

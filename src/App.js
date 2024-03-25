@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState} from "react";
+import React, { lazy, Suspense, useContext, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -12,6 +12,7 @@ import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 
 const Grocery = lazy(() => import("./components/Grocery"));
+const Contact = lazy(() => import("./components/Contact"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
@@ -21,13 +22,15 @@ const AppLayout = () => {
 
     useEffect(() => {
         const data = {
-            name: "Welcome Kushal",
+            name: "Hello Kushal",
         };
         setUserName(data.name);
     })
 
+    const{greet} = useContext(UserContext);
+
     return (
-        <UserContext.Provider value = {{loggedInUser: userName, setUserName}}>
+        <UserContext.Provider value = {{loggedInUser: userName, setUserName, greet}}>
         <div className="app">
             <Header />
             <Outlet />
@@ -52,7 +55,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/contact",
-                element: <Contact />
+                element: <Suspense fallback={<h1>Loading</h1>}><Contact /></Suspense>
             },
             {
                 path: "/grocery",
