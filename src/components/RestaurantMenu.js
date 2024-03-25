@@ -59,8 +59,8 @@ const RestaurantMenu = () => {
     <div className="m-5 justify-between">
       <div className="flex justify-between items-center">
         <div>
-          <p>{loggedInUser}</p>
-          <h1 className="font-bold text-xl my-2">{name}</h1>
+          <p className="font-bold">{loggedInUser}</p>
+          <h1 className="font-bold text-xl my-5">{name}</h1>
           <span className="text-xs text-gray-700">
             {cuisines.join(", ")} | {areaName}
           </span>
@@ -83,7 +83,6 @@ const RestaurantMenu = () => {
 
       {filteredCategories.map((category, index) => (
         //controlled component below
-
         <RestaurantCategory
           key={category?.card?.card?.title}
           data={category?.card?.card}
