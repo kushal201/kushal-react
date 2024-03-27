@@ -29,21 +29,21 @@ const RestaurantMenu = () => {
 
   // destructuring to get following properties
   const { name, cuisines, areaName, avgRating, totalRatingsString } =
-    resInfo?.cards[0]?.card?.card?.info;
+    resInfo?.cards[2]?.card?.card?.info;
 
-  const { deliveryTime } = resInfo?.cards[0]?.card?.card?.info.sla;
+  const { deliveryTime } = resInfo?.cards[2]?.card?.card?.info.sla;
 
   // destructuring to obtain the list of items from each restaurant
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card ||
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   console.log(itemCards);
 
   // filtering out the cards which have food items listed
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
         c?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -59,8 +59,8 @@ const RestaurantMenu = () => {
     <div className="m-5 justify-between">
       <div className="flex justify-between items-center">
         <div>
-          <p>{loggedInUser}</p>
-          <h1 className="font-bold text-xl my-2">{name}</h1>
+          <p className="font-semibold">{loggedInUser}</p>
+          <h1 className="font-bold text-xl my-5">{name}</h1>
           <span className="text-xs text-gray-700">
             {cuisines.join(", ")} | {areaName}
           </span>

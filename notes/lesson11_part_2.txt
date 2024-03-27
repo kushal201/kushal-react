@@ -40,3 +40,8 @@ value. It can be done by using useState and useEffect hooks. in App.js the <User
 tag is wrapped around the "app" div present in it. By doing this, it will override the loggedInUser value wherever it
 exists.
 
+context helps in preventing props drilling and makes code more readable and clean as the properties are stored
+independently irrespective on depending on components and passing props to receive data.
+
+
+

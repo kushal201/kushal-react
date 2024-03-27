@@ -8,9 +8,9 @@ import UserContext from "../utils/UserContext";
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  
+
   // using the context
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   console.log(loggedInUser);
 
   console.log("Header Rendered");
@@ -27,14 +27,14 @@ const Header = () => {
       <div className="flex items-center">
         <ul className="flex p-4 m-4">
           <li className="px-4">
-            <button type ="button">
-            Online Status: {onlineStatus ? "🟢": "🔴"}
+            <button type="button">
+              Online Status: {onlineStatus ? "🟢" : "🔴"}
             </button>
           </li>
           <li className="px-4">
             <button type="button">
-                <Link to="/">Home</Link>
-                </button>
+              <Link to="/">Home</Link>
+            </button>
           </li>
           <li className="px-4">
             <button type="button">

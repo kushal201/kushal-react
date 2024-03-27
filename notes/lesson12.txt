@@ -1,0 +1,1 @@
+We are starting implementing Redux in the project
