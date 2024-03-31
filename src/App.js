@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState} from "react";
+import React, { lazy, Suspense, useEffect, useState, useContext} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -25,9 +25,10 @@ const AppLayout = () => {
         };
         setUserName(data.name);
     })
+    const {greet} = useContext(UserContext);
 
     return (
-        <UserContext.Provider value = {{loggedInUser: userName, setUserName}}>
+        <UserContext.Provider value = {{loggedInUser: userName, setUserName, greet}}>
         <div className="app">
             <Header />
             <Outlet />

@@ -27,7 +27,6 @@ const Body = () => {
   useEffect(() => {
     console.log("Body useEffect called");
   }, [filteredRestaurant]);
-
   // logic to filtering restaurants as per input given in
   useEffect(() => {
     let filteredList = listOfRestaurants.filter((res) =>
