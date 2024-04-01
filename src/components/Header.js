@@ -20,7 +20,7 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="flex h-50 justify-between bg-orange-100 shadow-lg m-0">
+    <div className="z-20 sticky top-0 flex h-50 justify-between bg-orange-100 shadow-lg m-0">
       <div className="logo-container">
         <img className="w-[170px] rounded-sm" src={LOGO_URL} alt="Logo" />
       </div>
@@ -48,7 +48,7 @@ const Header = () => {
           </li>
           <li className="px-4">
             <button type="button">
-              <Link to="/grocery">Grocery</Link>
+              <Link to="/grocery">Cart</Link>
             </button>
           </li>
           {/* <li className="px-4">

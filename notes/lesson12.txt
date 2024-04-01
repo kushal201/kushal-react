@@ -1,1 +1,24 @@
-We are starting implementing Redux in the project
+We are starting implementing Redux in the project.
+Redux might not be mandatory for a project, unless if there is a lot of data and state to manage.
+When there are a lot of read, write operations in the app, redux will be of good use.
+Redux offers easy debugging.
+we are configuring redux usign redux toolkit (RTK) as it is easy to configure and no boilerplate
+code is needed.
+
+Redux store is like a big JS object with huge data and is kept in global central space. In a redux store
+there exists something called slices i.e. a small portion to store data like no.of items in cart, user data etc.
+
+while clicking add button on an item and if the item should display in the cart, it dispatches an action
+means it calls a function, the function will modify the slice of the store.
+
+This function is known as a reducer. For writing or entering data reducers are used whereas for
+reading data selectors are used.
+
+Selectors reads the data or updated data in the store and then modifies the react component (Cart)
+with the updated data.
+Here the component is Subscribed to the store using the selector.
+
+reducers define how state changes in response to actions, 
+while selectors provide a way to access and compute derived state from the Redux store. 
+Both reducers and selectors are essential concepts in Redux-based applications 
+for managing state effectively.
