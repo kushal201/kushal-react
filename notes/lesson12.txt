@@ -22,3 +22,31 @@ reducers define how state changes in response to actions,
 while selectors provide a way to access and compute derived state from the Redux store. 
 Both reducers and selectors are essential concepts in Redux-based applications 
 for managing state effectively.
+
+To build the store, @reduxjs/toolkit and react-redux library should be installed.
+Inside utils appStore is created and store is 
+configured using configureStore method is used which comes from @reduxjs/toolkit.
+
+In App.js, Provider is used from react-redux library to provide the redux store to the app.
+The <Provider /> tag is wrapped around the app inside App.js with appStore passed as props.
+
+For creating slices of store a new file cartSlice is created in utils and 
+createSlice method is used which comes from @reduxjs/toolkit.
+
+a slice with name as cart is created and initalState is set as empty array as cart is empty initially.
+reducers are introduced here, three reducers are created,
+with addItem, removeItem and clearCart being the actions.
+Items in cart are treated as elements in array, using push() and pop(), items are added and removed.
+cart is cleared by setting the length of cart to zero. State is mutated in this process.
+
+cartSlice will have actions as an object, so the actions addItem, removeItem and clearCart
+are destructured.
+To add the slice to the store, reducer is created inside the appStore.js file, this reducer is
+for the whole big store. and inside this reducer object, all the reducers from the slices are added.
+
+the store should be subscribed if we want to see the changes, to display the number of items in the cart,
+Inside Header.js, selector is introduced. 
+useSelector is the hook used to subscribe the store and the items in the cart is accessed.
+
+
+
