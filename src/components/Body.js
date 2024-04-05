@@ -1,5 +1,5 @@
 import RestaurantCard, { recommended } from "./RestaurantCard";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { RESTAURANT_LIST_URL } from "../utils/constant";
 import useRestaurantList from "../utils/useRestaurantList";
 import Shimmer from "./Shimmer";
@@ -27,6 +27,7 @@ const Body = () => {
   useEffect(() => {
     console.log("Body useEffect called");
   }, [filteredRestaurant]);
+
   // logic to filtering restaurants as per input given in
   useEffect(() => {
     let filteredList = listOfRestaurants.filter((res) =>
@@ -80,7 +81,7 @@ const Body = () => {
 
   // const restaurantList = useRestaurantList();
 
-  if (onlineStatus === false)
+  if (!onlineStatus)
     return <h1>You're Offline!, Please Check Your Internet Connection</h1>;
 
   // const { loggedInUser, setUserName } = useContext(UserContext);

@@ -29,6 +29,7 @@ const RestaurantCard = (props) => {
   );
 };
 
+// higher order component
 export const recommended = (RestaurantCard) => {
   return (props) => {
     return (

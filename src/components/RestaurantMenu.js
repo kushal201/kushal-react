@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useParams } from "react-router-dom";
-import UserContext from "../utils/UserContext";
 import ShimmerMenu from "./ShimmerMenu";
 
 const RestaurantMenu = () => {
@@ -24,8 +23,6 @@ const RestaurantMenu = () => {
   };
 
   if (resInfo === null) return <ShimmerMenu />;
-
-  const { loggedInUser } = useContext(UserContext);
 
   // destructuring to get following properties
   const { name, cuisines, areaName, avgRating, totalRatingsString } =
@@ -59,7 +56,6 @@ const RestaurantMenu = () => {
     <div className="m-5 justify-between">
       <div className="flex justify-between items-center">
         <div>
-          <p>{loggedInUser}</p>
           <h1 className="font-bold text-xl my-2">{name}</h1>
           <span className="text-xs text-gray-700">
             {cuisines.join(", ")} | {areaName}

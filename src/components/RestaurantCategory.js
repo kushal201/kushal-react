@@ -5,7 +5,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
     setShowIndex();
   };
 
-  // Function to toggle icon based on showItems state
+  // to toggle icon based on showItems state
   const toggleIcon = showItems ? "🔼" : "🔽";
 
   return (

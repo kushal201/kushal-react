@@ -42,6 +42,7 @@ const AppLayout = () => {
     );
 };
 
+// Creating Routes using createBrowserRouter
 const appRouter = createBrowserRouter([
     {
         path: "/",
