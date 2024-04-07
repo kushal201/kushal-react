@@ -61,9 +61,10 @@ const RestaurantMenu = () => {
             {cuisines.join(", ")} | {areaName}
           </span>
         </div>
+
         <div className="flex items-center">
-          <span className="font-bold mx-7">{totalRatingsString}</span>
-          <span className="bg-green-600 text-white rounded-lg font-medium p-1">
+          <span className="font-bold mx-5">{totalRatingsString}</span>
+          <span className="bg-green-600 text-white rounded-lg font-medium p-2">
             {avgRating} ☆
           </span>
         </div>

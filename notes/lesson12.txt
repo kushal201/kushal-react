@@ -1,6 +1,6 @@
 We are starting implementing Redux in the project.
 Redux might not be mandatory for a project, unless if there is a lot of data and state to manage.
-When there are a lot of read, write operations in the app, redux will be of good use.
+When there are a lot of read and write operations in the app, redux will be of good use.
 Redux offers easy debugging.
 we are configuring redux usign redux toolkit (RTK) as it is easy to configure and no boilerplate
 code is needed.
@@ -39,14 +39,47 @@ with addItem, removeItem and clearCart being the actions.
 Items in cart are treated as elements in array, using push() and pop(), items are added and removed.
 cart is cleared by setting the length of cart to zero. State is mutated in this process.
 
-cartSlice will have actions as an object, so the actions addItem, removeItem and clearCart
-are destructured.
+cartSlice will have actions as an object implicitly, hence the actions addItem, removeItem and clearCart
+are destructured and exported.
 To add the slice to the store, reducer is created inside the appStore.js file, this reducer is
 for the whole big store. and inside this reducer object, all the reducers from the slices are added.
 
 the store should be subscribed if we want to see the changes, to display the number of items in the cart,
 Inside Header.js, selector is introduced. 
 useSelector is the hook used to subscribe the store and the items in the cart is accessed.
+
+In ItemList, to make an item add in the cart, a function handleAddButton is included. As the action
+should be dispatched, useDispatch hook is used which comes from react-redux. A variable dispatch
+is created which calls useDispatch method.
+inside dispatch, addItem is passed as argument with dummy data.
+
+to pass actual items data, another component named Cart is created. In the Cart component, 
+as it is supposed to read data from the store, it is subscribed with the Cart component.
+
+in Cart, ItemList component is rendered for reusability purposes along with cartItems as props.
+
+While using redux, subscribing to a portion of the store is preferred than subsribing to the 
+whole store as it makes the app reducde its performance.
+
+During vanilla redux, it was prohibited to mutate state as redux relies on immutability to manage state
+efficiently.
+Reducers in Redux are expected to be pure functions, meaning they produce the same output for the same input 
+and have no side effects. Allowing mutation could introduce side effects, making reducers impure and harder
+to reason about.
+
+With the release of Redux Toolkit, 
+the preferred approach to working with Redux has shifted towards using createSlice, createReducer, 
+and createAction utilities, which handle immutability internally and encourage a more concise and 
+less error-prone way of defining Redux logic. These utilities handle immutable updates under the hood, 
+making it easier for developers to follow Redux best practices without explicitly worrying about mutating state.
+
+Redux Toolkit, which is commonly used alongside Redux, utilizes Immer under the hood to handle immutability 
+in reducer functions. Immer is a library that simplifies the process of immutably updating nested data structures,
+making it easier and more intuitive to work with immutable state.
+
+in cartSlice.js, Even though state.items.push(action.payload) appears to be mutating state, 
+Immer ensures that the original state object remains unchanged and a new immutable state is returned
+with the updates applied.
 
 
 

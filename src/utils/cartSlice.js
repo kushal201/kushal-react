@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: ["Burger", "Drink"], // inital state of cart is empty
+    items: [], // inital state of cart is empty
   },
   reducers: {
     // to add item in the cart
@@ -18,7 +18,7 @@ const cartSlice = createSlice({
 
     // for clearing the cart
     clearCart: (state) => {
-      state.items.length = 0; // array becomes empty
+      return { items: [] }; // array becomes empty
     },
   },
 });
