@@ -1,0 +1,11 @@
+Types of Testing a developer can do are:
+- Unit Testing
+- Integration Testing
+- E2E Testing
+
+Unit Testing means testing each component in isolation.
+Integration testing means to test if all the components together work as a whole or not.
+
+to start unit testing, React Testing Library is used. when an app is created using create-react-app,
+testing library is already configured, but as this app is built using parcel, testing library should be
+added.
