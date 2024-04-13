@@ -24,7 +24,7 @@ Both reducers and selectors are essential concepts in Redux-based applications
 for managing state effectively.
 
 To build the store, @reduxjs/toolkit and react-redux library should be installed.
-Inside utils appStore is created and store is 
+Inside utils, store with the name appStore is created and store is 
 configured using configureStore method is used which comes from @reduxjs/toolkit.
 
 In App.js, Provider is used from react-redux library to provide the redux store to the app.

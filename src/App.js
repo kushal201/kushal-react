@@ -12,7 +12,6 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
-import { useSelector } from "react-redux";
 import appStore from "./utils/appStore";
 
 const Grocery = lazy(() => import("./components/Grocery"));

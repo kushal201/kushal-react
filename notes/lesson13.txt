@@ -9,3 +9,21 @@ Integration testing means to test if all the components together work as a whole
 to start unit testing, React Testing Library is used. when an app is created using create-react-app,
 testing library is already configured, but as this app is built using parcel, testing library should be
 added.
+
+Jest is used as the testing library the project. it is a JavaScript testing library which works 
+with projects using Babel, TypeScript, Node, React, Angular, Vue.
+
+react testing library and jest are installed, also as babel is used the necessary dependencies are
+also installed and is configured inside babel.config.js file.
+
+Parcel already has babel and also has its own configuration. As we are trying to override the configuration
+a conflict might arise. To avoid this we have to change configuration of parcel.
+a new file .parcelrc is created to modify parcel configuration to disable default babel transpilation
+and use the new configuration.
+
+to run test cases, npm run test command is used, and while executing the command a message no tests found
+appears which implies the testing library is successfully configured.
+
+jest is configured using npx jest --init command. jsdom is used as the test environment which is also
+configured.
+To create test cases, a folder __tests__ is created
