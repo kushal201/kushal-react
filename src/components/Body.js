@@ -100,6 +100,12 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
+          <button
+            onClick={() => setSearchText("")}
+            className="bg-green-300 text-white p-1 m-2 rounded-lg"
+          >
+            Clear
+          </button>
         </div>
 
         <div className="search m-4 p-4 flex items-center"></div>
