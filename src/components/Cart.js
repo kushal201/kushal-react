@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import ItemList from "./ItemList";
-import { clearCart, removeItem } from "../utils/cartSlice";
+import CartItems from "./CartItems";
+import { clearCart } from "../utils/cartSlice";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems);
@@ -12,9 +12,6 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
-  const handleRemoveItem = () => {
-    dispatch(removeItem());
-  };
   return (
     <div className="text-center m-4 p-4">
       <h1 className="text-2xl font-bold">Cart</h1>
@@ -25,14 +22,8 @@ const Cart = () => {
         >
           Clear Cart
         </button>
-        <button
-          onClick={handleRemoveItem}
-          className="m-2 p-2 bg-orange-400 text-white rounded-lg shadow-lg"
-        >
-          Remove Item
-        </button>
         {cartItems.length === 0 && <h1>Your cart is Empty ☹</h1>}
-        <ItemList items={cartItems} />
+        <CartItems items={cartItems} />
       </div>
     </div>
   );

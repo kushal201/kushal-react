@@ -11,9 +11,10 @@ const cartSlice = createSlice({
       state.items.push(action.payload);
     },
 
-    // to remove an item from the cart
-    removeItem: (state) => {
-      state.items.pop();
+    // to remove a specific item from the cart
+    removeItem: (state, action) => {
+      const indexToRemove = action.payload;
+      state.items.splice(indexToRemove, 1)
     },
 
     // for clearing the cart
