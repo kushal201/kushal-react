@@ -13,7 +13,7 @@ added.
 Jest is used as the testing library the project. it is a JavaScript testing library which works 
 with projects using Babel, TypeScript, Node, React, Angular, Vue.
 
-react testing library and jest are installed, also as babel is used the necessary dependencies are
+react testing library and jest are installed, also as babel is used as the necessary dependencies are
 also installed and is configured inside babel.config.js file.
 
 Parcel already has babel and also has its own configuration. As we are trying to override the configuration
@@ -26,4 +26,6 @@ appears which implies the testing library is successfully configured.
 
 jest is configured using npx jest --init command. jsdom is used as the test environment which is also
 configured.
-To create test cases, a folder __tests__ is created
+To create test cases, a folder __tests__ is created.
+To access the redux store appStore, the Provider tag is wrapped around the Header component 
+in the render method
