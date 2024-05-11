@@ -28,4 +28,8 @@ jest is configured using npx jest --init command. jsdom is used as the test envi
 configured.
 To create test cases, a folder __tests__ is created.
 To access the redux store appStore, the Provider tag is wrapped around the Header component 
-in the render method
+in the render method.
+
+after unit testing, while beginning to test RestaurantCard component, it is slightly different as 
+it recieves props. To test in this scenario, mock data should be used and for that a folder named 
+mocks is created inside to store mock data in the form of json

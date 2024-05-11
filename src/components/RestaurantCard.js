@@ -4,6 +4,7 @@ import UserContext from "../utils/UserContext.js";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  console.log(resData);
   const { greet } = useContext(UserContext);
   const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, areaName } =
     resData.info;
@@ -35,7 +36,7 @@ export const recommended = (RestaurantCard) => {
     return (
       <div>
         <label className="absolute bg-orange-400 text-white m-2 p-2 rounded-lg">
-          Recommended
+          Recommended 
         </label>
         <RestaurantCard {...props} />
       </div>
