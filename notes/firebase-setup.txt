@@ -1,0 +1,7 @@
+for adding authentication to the app, firebase is implemented.
+to use it, firebase is installed using npm install firebase command
+then in firebase, a project is created with a name and in the CLI, the selected name is chosen, firebase is initialized.
+the .firebase.rc file is created when firebase is installed, and for configuration, firebase.js file is created inside
+utils folder which has the firebase configuration.
+
+to use firebase, a new component Login is created

@@ -13,13 +13,13 @@ const cartSlice = createSlice({
 
     // to remove a specific item from the cart
     removeItem: (state, action) => {
-      const indexToRemove = action.payload;
-      state.items.splice(indexToRemove, 1)
+      state.items = state.items.filter(item => item.card.info.id !== action.payload.id)
     },
 
     // for clearing the cart
     clearCart: (state) => {
       state.items = []; // array becomes empty
+      console.log("Clicked")
     },
   },
 });

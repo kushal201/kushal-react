@@ -7,3 +7,5 @@ export const RESTAURANT_LIST_URL = "https://www.swiggy.com/dapi/restaurants/list
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4973049&lng=78.5384005&restaurantId=";
 
 export const MENU_EXTEND_URL = "&catalog_qa=undefined&submitAction=ENTER";
+
+// export const LOGIN_BG_URL = 

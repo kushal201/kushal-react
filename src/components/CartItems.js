@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 const CartItems = ({ items }) => {
   const IMG_URL =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/";
+    console.log(items)
 
   const dispatch = useDispatch();
   const handleRemoveItem = (item) => {
-    dispatch(removeItem(item));
+    dispatch(removeItem({ id: item.card.info.id }));
   };
 
   return (
@@ -29,7 +30,7 @@ const CartItems = ({ items }) => {
             </div>
             <button
               className="m-2 p-2 bg-orange-400 text-white rounded-lg shadow-lg"
-              onClick={handleRemoveItem}
+              onClick={() => handleRemoveItem(item)}
             >
               Remove
             </button>

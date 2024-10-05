@@ -1,14 +1,17 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useParams } from "react-router-dom";
 import ShimmerMenu from "./ShimmerMenu";
+import { useGlobal } from "../utils/UserContext";
 
 const RestaurantMenu = () => {
   const [searchItems, setSearchItems] = useState("");
 
   // using useParams to get "resId" from url
   const { resId } = useParams();
+
+  const { dark } = useGlobal();
 
   // using the customised hook
   const resInfo = useRestaurantMenu(resId);
@@ -53,11 +56,11 @@ const RestaurantMenu = () => {
   );
 
   return (
-    <div className="m-5 justify-between">
+    <div className={`${dark ? "bg-gray-800 text-white" : "bg-white text-black"} p-4 justify-between`}>
       <div className="flex justify-between items-center">
         <div>
           <h1 className="font-bold text-xl my-2">{name}</h1>
-          <span className="text-xs text-gray-700">
+          <span className={`${dark ? "bg-gray-800 text-white" : "bg-white text-gray-700"} text-xs`}>
             {cuisines.join(", ")} | {areaName}
           </span>
         </div>
@@ -69,8 +72,8 @@ const RestaurantMenu = () => {
           </span>
         </div>
       </div>
-      <span className="text-xs text-gray-700">⏱ - {deliveryTime} minutes</span>
-      <div className="my-5 border-t border-dashed border-black w-full"></div>
+      <span className={`${dark ? "bg-gray-800 text-white" : "bg-white text-gray-700"} text-xs `}>⏱ - {deliveryTime} minutes</span>
+      <div className={`my-5 border-t border-dashed w-full ${dark ? "border-white" : "border-black"}`}></div>
       <input
         type="text"
         onChange={(e) => setSearchItems(e.target.value)}
@@ -79,7 +82,7 @@ const RestaurantMenu = () => {
       ></input>
 
       {filteredCategories.map((category, index) => (
-        //controlled component below
+        //lifted state up of component below
         <RestaurantCategory
           key={category?.card?.card?.title}
           data={category?.card?.card}

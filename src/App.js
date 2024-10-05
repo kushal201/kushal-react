@@ -1,47 +1,48 @@
-import React, { lazy, Suspense, useEffect, useState, useContext } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
+import Login from "./components/Login";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
-import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
 import Footer from "./components/Footer";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
-import UserContext from "./utils/UserContext";
+import { useGlobal, UserProvider } from "./utils/UserContext"; // ensure correct imports
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 
+// Lazy-loaded components
 const Grocery = lazy(() => import("./components/Grocery"));
 const Contact = lazy(() => import("./components/Contact"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
-  // for authentication
   const [userName, setUserName] = useState();
+  const { user, setUser } = useGlobal(); // Ensure this is used within the UserProvider context
 
   useEffect(() => {
     const data = {
       name: "Welcome Kushal",
     };
     setUserName(data.name);
-  });
-  const { greet } = useContext(UserContext);
+  }, []);
 
   return (
-    <Provider store={appStore}>
-      <UserContext.Provider
-        value={{ loggedInUser: userName, setUserName, greet }}
-      >
-        <div className="app">
+    <div className="app min-h-screen flex flex-col">
+      {user ? (
+        <>
           <Header />
-          <Outlet />
-          <Footer />
-        </div>
-      </UserContext.Provider>
-    </Provider>
+          <div className="flex-grow">
+            <Outlet />
+          </div>
+          <Footer className="mt-auto" />
+        </>
+      ) : (
+        <Login />
+      )}
+    </div>
   );
 };
 
@@ -58,14 +59,18 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense fallback={<h1>Loading</h1>}>
+          <Suspense fallback={<h1>Loading...</h1>}>
             <About />
           </Suspense>
         ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "/grocery",
@@ -89,4 +94,12 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+root.render(
+  <Provider store={appStore}>
+    <UserProvider>
+      {" "}
+      {/* UserProvider wrapping the whole app */}
+      <RouterProvider router={appRouter} />
+    </UserProvider>
+  </Provider>
+);

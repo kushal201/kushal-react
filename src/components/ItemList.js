@@ -1,8 +1,11 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
+import { useGlobal } from "../utils/UserContext";
 const ItemList = ({ items }) => {
   // console.log(items);
   const dispatch = useDispatch();
+
+  const { dark } = useGlobal();
 
   const handleAddItem = (item) => {
     // Dispatching action
@@ -13,7 +16,7 @@ const ItemList = ({ items }) => {
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/";
 
   return (
-    <div>
+    <div className={`${dark ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -30,7 +33,7 @@ const ItemList = ({ items }) => {
               </span>
             </div>
 
-            <p className="text-xs text-gray-700">
+            <p className={`${dark ? "text-white" : "text-gray-700"} text-xs`}>
               {item?.card?.info?.description}
             </p>
           </div>
@@ -38,7 +41,7 @@ const ItemList = ({ items }) => {
             <div className="absolute">
               <button
                 className="p-2 text-green-600 bg-gray-100 shadow-xl"
-                onClick={() =>handleAddItem(item)}
+                onClick={() => handleAddItem(item)}
               >
                 Add
               </button>

@@ -1,7 +1,7 @@
 import RestaurantCard, { recommended } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { RESTAURANT_LIST_URL } from "../utils/constant";
-import useRestaurantList from "../utils/useRestaurantList";
+import { useGlobal } from "../utils/UserContext";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -11,6 +11,7 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const { dark } = useGlobal();
 
   // Higher Order Component
   const RestaurantCardRecommended = recommended(RestaurantCard);
@@ -33,6 +34,9 @@ const Body = () => {
     let filteredList = listOfRestaurants.filter((res) =>
       res.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
+    // if(!filteredList.length) {
+    //   return <h1>No Such Restaurants Found!</h1>
+    // }
     setFilteredRestaurant(filteredList);
   }, [searchText, listOfRestaurants]);
 
@@ -81,20 +85,18 @@ const Body = () => {
 
   // const restaurantList = useRestaurantList();
 
-  if (!onlineStatus)
-    return <h1>You're Offline!, Please Check Your Internet Connection</h1>;
-
-  // const { loggedInUser, setUserName } = useContext(UserContext);
+  if (!onlineStatus) return <h1>You're Offline!, Please Check Your Internet Connection</h1>;
 
   return listOfRestaurants.length === 0 ? (
-    <Shimmer />
+    <Shimmer listOfRestaurants={listOfRestaurants} />
   ) : (
-    <div className="body">
-      <div className="filter flex place-items-center">
+    <div className={`${dark ? "bg-gray-800" : "bg-white"} body`}>
+      <div className="flex place-items-center">
         <div className="search m-4 p-4 flex items-center">
           <input
             type="text"
-            className="border border-black w-full"
+            placeholder="Search for Restaurants"
+            className="border border-black w-full py-2 px-1"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
@@ -102,7 +104,7 @@ const Body = () => {
           />
           <button
             onClick={() => setSearchText("")}
-            className="bg-green-300 text-white p-1 m-2 rounded-lg"
+            className="bg-orange-400 text-white p-2 mx-5 rounded-md"
           >
             Clear
           </button>
@@ -110,19 +112,21 @@ const Body = () => {
 
         <div className="search m-4 p-4 flex items-center"></div>
 
-        <button
-          className="px-4 py-2 text-white bg-orange-400 m-4 flex items-center rounded-lg shadow-lg"
-          onClick={filterTopRatedRestaurants}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="flex ml-auto">
+          <button
+            className="px-4 py-2 text-white bg-orange-400 m-4 flex items-center rounded-lg shadow-lg"
+            onClick={filterTopRatedRestaurants}
+          >
+            Top Rated Restaurants
+          </button>
 
-        <button
-          className="p-2 mx-3 bg-yellow-500 text-white rounded-lg shadow-lg"
-          onClick={quickDelivery}
-        >
-          Nearby Restaurants
-        </button>
+          <button
+            className="mx-3 bg-yellow-500 text-white rounded-lg shadow-lg"
+            onClick={quickDelivery}
+          >
+            Nearby Restaurants
+          </button>
+        </div>
       </div>
       <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
